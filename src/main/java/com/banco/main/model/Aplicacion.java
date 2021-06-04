@@ -1,41 +1,88 @@
 package com.banco.main.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "aplicacion")
 public class Aplicacion {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "numero_cuenta")
-	private int numeroCuenta;
-	@Column(name = "saldo")
-	private boolean saldo;
+	@Column(name = "folio")
+	private int folio;
+	
+	//reserved for one to one relationship
+	
+	@Column(name = "fecha_aplicacion")
+	private Date fechaAplicacion;
+	
+	@Column(name = "aprobacion", nullable = true)
+	private char aprobacion;
+	
+	@Column(name = "fecha_aprobacion", nullable = true)
+	private Date fechaAprovacion;
+	
+	@Column(name = "monto_autorizado", nullable = true)
+	private int montoAutorizado;
+	
 	public Aplicacion() {
 	}
-	public Aplicacion(int numeroCuenta, boolean saldo) {
-		this.numeroCuenta = numeroCuenta;
-		this.saldo = saldo;
+	
+	public Aplicacion(int folio, Date fechaAplicacion, char aprobacion, Date fechaAprovacion, int montoAutorizado) {
+		this.folio = folio;
+		this.fechaAplicacion = fechaAplicacion;
+		this.aprobacion = aprobacion;
+		this.fechaAprovacion = fechaAprovacion;
+		this.montoAutorizado = montoAutorizado;
 	}
-	public int getNumeroCuenta() {
-		return numeroCuenta;
+	
+	public int getFolio() {
+		return folio;
 	}
-	public void setNumeroCuenta(int numeroCuenta) {
-		this.numeroCuenta = numeroCuenta;
+	
+	public void setFolio(int folio) {
+		this.folio = folio;
 	}
-	public boolean isSaldo() {
-		return saldo;
+	
+	public Date getFechaAplicacion() {
+		return fechaAplicacion;
 	}
-	public void setSaldo(boolean saldo) {
-		this.saldo = saldo;
+	
+	public void setFechaAplicacion(Date fechaAplicacion) {
+		this.fechaAplicacion = fechaAplicacion;
 	}
+	
+	public char getAprobacion() {
+		return aprobacion;
+	}
+	
+	public void setAprobacion(char aprobacion) {
+		this.aprobacion = aprobacion;
+	}
+	
+	public Date getFechaAprovacion() {
+		return fechaAprovacion;
+	}
+	
+	public void setFechaAprovacion(Date fechaAprovacion) {
+		this.fechaAprovacion = fechaAprovacion;
+	}
+	
+	public int getMontoAutorizado() {
+		return montoAutorizado;
+	}
+	
+	public void setMontoAutorizado(int montoAutorizado) {
+		this.montoAutorizado = montoAutorizado;
+	}
+	
 	@Override
 	public String toString() {
-		return "Aplicacion [numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + "]";
+		return "Aplicacion [folio=" + folio + ", fechaAplicacion=" + fechaAplicacion + ", aprobacion=" + aprobacion
+				+ ", fechaAprovacion=" + fechaAprovacion + ", montoAutorizado=" + montoAutorizado + "]";
 	}
 }
