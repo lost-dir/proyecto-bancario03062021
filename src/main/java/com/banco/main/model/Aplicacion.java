@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -16,18 +18,19 @@ public class Aplicacion {
 	
 	@Id
 	@Column(name = "folio")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int folio;
 	
 	//reserved for one to one relationship
 	@OneToOne
-	@JoinColumn(name = "id_usuario")
+	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
 	
 	@OneToOne
-	@JoinColumn(name = "id_producto")
+	@JoinColumn(name = "id_producto", nullable = false)
 	private Producto producto;
 	
-	@Column(name = "fecha_aplicacion")
+	@Column(name = "fecha_aplicacion", nullable = false)
 	private Date fechaAplicacion;
 	
 	@Column(name = "aprobacion", nullable = true)
@@ -37,12 +40,14 @@ public class Aplicacion {
 	private Date fechaAprovacion;
 	
 	@Column(name = "monto_autorizado", nullable = true)
-	private int montoAutorizado;
+	private double montoAutorizado;
 	
 	public Aplicacion() {
 	}
 	
-	public Aplicacion(int folio, Usuario usuario, Producto producto, Date fechaAplicacion, char aprobacion, Date fechaAprovacion, int montoAutorizado) {
+	//constructor to update
+	
+	public Aplicacion(int folio, Usuario usuario, Producto producto, Date fechaAplicacion, char aprobacion, Date fechaAprovacion, double montoAutorizado) {
 		this.folio = folio;
 		this.usuario = usuario;
 		this.producto = producto;
@@ -52,6 +57,18 @@ public class Aplicacion {
 		this.montoAutorizado = montoAutorizado;
 	}
 	
+	//constructor to create, since PK is now auto-generated, there is  no use to make a declaration of it
+	
+	public Aplicacion(Usuario usuario, Producto producto, Date fechaAplicacion, char aprobacion, Date fechaAprovacion,
+			double montoAutorizado) {
+		this.usuario = usuario;
+		this.producto = producto;
+		this.fechaAplicacion = fechaAplicacion;
+		this.aprobacion = aprobacion;
+		this.fechaAprovacion = fechaAprovacion;
+		this.montoAutorizado = montoAutorizado;
+	}
+
 	public int getFolio() {
 		return folio;
 	}
@@ -84,11 +101,11 @@ public class Aplicacion {
 		this.fechaAprovacion = fechaAprovacion;
 	}
 	
-	public int getMontoAutorizado() {
+	public double getMontoAutorizado() {
 		return montoAutorizado;
 	}
 	
-	public void setMontoAutorizado(int montoAutorizado) {
+	public void setMontoAutorizado(double montoAutorizado) {
 		this.montoAutorizado = montoAutorizado;
 	}
 	
