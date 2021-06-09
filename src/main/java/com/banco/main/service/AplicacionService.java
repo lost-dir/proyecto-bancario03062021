@@ -6,4 +6,5 @@ public interface AplicacionService {
 	public boolean createAplicacion(AplicacionBean aplicacionBean);
 	public boolean updateAplicacion(AplicacionBean aplicacionBean);
 	public AplicacionBean getAplicacion(int folio);
+
 }
