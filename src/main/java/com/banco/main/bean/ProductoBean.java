@@ -31,6 +31,14 @@ public class ProductoBean implements Serializable {
 		this.montoMiimo = montoMiimo;
 		this.montoMaximo = montoMaximo;
 	}
+	
+	public ProductoBean(String tipodeProducto, double tasaInteres, double montoMiimo,
+			double montoMaximo) {
+		this.tipodeProducto = tipodeProducto;
+		this.tasaInteres = tasaInteres;
+		this.montoMiimo = montoMiimo;
+		this.montoMaximo = montoMaximo;
+	}
 
 
 	public int getIdProducto() {

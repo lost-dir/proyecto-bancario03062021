@@ -16,6 +16,10 @@ public class AplicacionBean implements Serializable {
 	private int folio;
 	private Usuario usuario;
 	private Producto producto;
+	
+	private UsuarioBean usuarioBean;
+	private ProductoBean productoBean;
+	
 	private Date fechaAplicacion;
 	private char aprobacion;
 	private Date fechaAprovacion;
@@ -39,6 +43,16 @@ public class AplicacionBean implements Serializable {
 			Date fechaAprovacion, double montoAutorizado) {
 		this.usuario = usuario;
 		this.producto = producto;
+		this.fechaAplicacion = fechaAplicacion;
+		this.aprobacion = aprobacion;
+		this.fechaAprovacion = fechaAprovacion;
+		this.montoAutorizado = montoAutorizado;
+	}
+	
+	public AplicacionBean(UsuarioBean usuarioBean, ProductoBean productoBean, Date fechaAplicacion, char aprobacion,
+			Date fechaAprovacion, double montoAutorizado) {
+		this.usuarioBean = usuarioBean;
+		this.productoBean = productoBean;
 		this.fechaAplicacion = fechaAplicacion;
 		this.aprobacion = aprobacion;
 		this.fechaAprovacion = fechaAprovacion;

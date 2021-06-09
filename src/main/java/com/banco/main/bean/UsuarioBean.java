@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class UsuarioBean implements Serializable{
 	
 		
-	private Integer idUsuario;
+	private int idUsuario;
 	private String nombre;
 	private String apellido;
 	private String email;
@@ -16,10 +16,18 @@ public class UsuarioBean implements Serializable{
 	
 	}
 		
-	public UsuarioBean(Integer idUsuario, String nombre, String apellido, String email,
+	public UsuarioBean(int idUsuario, String nombre, String apellido, String email,
 			String calificacionBuro) {
 		super();
 		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.calificacionBuro = calificacionBuro;
+	}
+	
+	public UsuarioBean(String nombre, String apellido, String email,
+			String calificacionBuro) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;

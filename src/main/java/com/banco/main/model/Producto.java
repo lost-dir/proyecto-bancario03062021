@@ -13,7 +13,7 @@ public class Producto {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name = "id_producto")
-private double idproducto;
+private int idproducto;
 @Column(name = "tipo_producto")
 private String tipoproducto;
 @Column(name = "tasa_interes")
@@ -27,9 +27,16 @@ public Producto() {
 	
 }
 
-public Producto(double idproducto, String tipoproducto, double tasainteres, double montominimo, double montomaximo) {
+public Producto(int idproducto, String tipoproducto, double tasainteres, double montominimo, double montomaximo) {
 	super();
 	this.idproducto = idproducto;
+	this.tipoproducto = tipoproducto;
+	this.tasainteres = tasainteres;
+	this.montominimo = montominimo;
+	this.montomaximo = montomaximo;
+}
+
+public Producto(String tipoproducto, double tasainteres, double montominimo, double montomaximo) {
 	this.tipoproducto = tipoproducto;
 	this.tasainteres = tasainteres;
 	this.montominimo = montominimo;
@@ -40,7 +47,7 @@ public double getIdproducto() {
 	return idproducto;
 }
 
-public void setIdproducto(double idproducto) {
+public void setIdproducto(int idproducto) {
 	this.idproducto = idproducto;
 }
 

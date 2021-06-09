@@ -43,6 +43,14 @@ public class Usuario {
 		this.email = email;
 		this.calificacionBuro = calificacionBuro;
 	}
+	
+	public Usuario(String nombre, String apellido, String email,
+			String calificacionBuro) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.calificacionBuro = calificacionBuro;
+	}
 
 
 	public Integer getIdUsuario() {

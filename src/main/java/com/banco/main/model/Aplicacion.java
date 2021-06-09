@@ -23,11 +23,11 @@ public class Aplicacion {
 	
 	//reserved for one to one relationship
 	@OneToOne
-	@JoinColumn(name = "id_usuario", nullable = false)
+	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
 	@OneToOne
-	@JoinColumn(name = "id_producto", nullable = false)
+	@JoinColumn(name = "id_producto")
 	private Producto producto;
 	
 	@Column(name = "fecha_aplicacion", nullable = false)
