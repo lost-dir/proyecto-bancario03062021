@@ -27,11 +27,11 @@ public class ProductoServiceImpl implements ProductoService {
 		
 		Producto producto = new Producto();
 		
-		producto.setIdproducto(producto.getIdproducto());
-		producto.setMontomaximo(producto.getMontomaximo());
-		producto.setMontominimo(producto.getMontominimo());
-		producto.setTasainteres(producto.getTasainteres());
-		producto.setTipoproducto(producto.getTipoproducto());
+		producto.setIdproducto(productoBean.getIdProducto());
+		producto.setMontomaximo(productoBean.getMontoMaximo());
+		producto.setMontominimo(productoBean.getMontoMiimo());
+		producto.setTasainteres(productoBean.getTasaInteres());
+		producto.setTipoproducto(productoBean.getTipodeProducto());
 		
 		this.productoRepo.save(producto);
 		
