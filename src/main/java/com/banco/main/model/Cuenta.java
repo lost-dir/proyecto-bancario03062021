@@ -18,23 +18,19 @@ public class Cuenta {
 	@Column(name = "numero_cuenta")
 	private int numeroCuenta;
 	
-	
 	@Column(name = "saldo")
 	private Double saldo;
 	 
-	 @OneToOne
-	 @JoinColumn(name = "idUsuario")
-	 private Usuario id_usuario;
+	@OneToOne
+	@JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
-	 public Cuenta() {
-		// TODO Auto-generated constructor stub
-	}
+	public Cuenta() {}
 
-	public Cuenta(int numeroCuenta, Double saldo, Usuario id_usuario) {
-		super();
+	public Cuenta(int numeroCuenta, Double saldo, Usuario usuario) {
 		this.numeroCuenta = numeroCuenta;
 		this.saldo = saldo;
-		this.id_usuario = id_usuario;
+		this.usuario = usuario;
 	}
 
 	public int getNumeroCuenta() {
@@ -53,21 +49,17 @@ public class Cuenta {
 		this.saldo = saldo;
 	}
 
-	public Usuario getId_usuario() {
-		return id_usuario;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setId_usuario(Usuario id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
 	public String toString() {
-		return "Cuenta [numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + ", id_usuario=" + id_usuario + "]";
+		return "Cuenta [numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + ", Usuario=" + usuario + "]";
 	}
-	
-	
-	 
-	 
 
 }

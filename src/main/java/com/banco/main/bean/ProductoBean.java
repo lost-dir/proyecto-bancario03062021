@@ -13,6 +13,7 @@ public class ProductoBean implements Serializable {
 	private int idProducto;
 	private String tipodeProducto;
 	private double tasaInteres;
+	//Error de sintaxis :C
 	private double montoMiimo;
 	private double montoMaximo;
 	
@@ -45,8 +46,8 @@ public class ProductoBean implements Serializable {
 		return idProducto;
 	}
 
-
-	public void setIdProducto(double d) {
+	//compuse esta linea :D
+	public void setIdProducto(int idProducto) {
 		this.idProducto = idProducto;
 	}
 
@@ -55,8 +56,8 @@ public class ProductoBean implements Serializable {
 		return tipodeProducto;
 	}
 
-
-	public void setTipodeProducto(String d) {
+	//compuse esta linea :D
+	public void setTipodeProducto(String tipodeProducto) {
 		this.tipodeProducto = tipodeProducto;
 	}
 

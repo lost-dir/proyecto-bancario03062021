@@ -31,7 +31,7 @@ public class ProductoServiceImpl implements ProductoService {
 		producto.setMontomaximo(productoBean.getMontoMaximo());
 		producto.setMontominimo(productoBean.getMontoMiimo());
 		producto.setTasainteres(productoBean.getTasaInteres());
-		producto.setTipoproducto(productoBean.getTipodeProducto());
+		producto.setTipoDeProducto(productoBean.getTipodeProducto());
 		
 		this.productoRepo.save(producto);
 		
@@ -52,7 +52,7 @@ public class ProductoServiceImpl implements ProductoService {
 			productoBean.setMontoMaximo(producto.getMontomaximo());
 			productoBean.setMontoMiimo(producto.getMontominimo());
 			productoBean.setTasaInteres(producto.getTasainteres());
-			productoBean.setTipodeProducto(producto.getTipoproducto());
+			productoBean.setTipodeProducto(producto.getTipoDeProducto());
 			
 			
 			
@@ -73,7 +73,8 @@ public class ProductoServiceImpl implements ProductoService {
 		productoBean.setMontoMaximo(producto.getMontomaximo());
 		productoBean.setMontoMiimo(producto.getMontominimo());
 		productoBean.setTasaInteres(producto.getTasainteres());
-		productoBean.setTipodeProducto(producto.getTipoproducto());
+		//aqui los nombres no concuerdan :C
+		productoBean.setTipodeProducto(producto.getTipoDeProducto());
 		
 		return productoBean;
 		
@@ -87,7 +88,7 @@ public class ProductoServiceImpl implements ProductoService {
 		producto.setMontominimo(productoBean.getMontoMaximo());
 		producto.setMontominimo(productoBean.getMontoMiimo());
 		producto.setTasainteres(productoBean.getTasaInteres());
-		producto.setTipoproducto(productoBean.getTipodeProducto());
+		producto.setTipoDeProducto(productoBean.getTipodeProducto());
 		
 		productoRepo.save(producto);	
 		

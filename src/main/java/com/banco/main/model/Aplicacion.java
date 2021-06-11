@@ -2,7 +2,6 @@ package com.banco.main.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,12 +14,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "aplicacion")
 public class Aplicacion {
-	
+	//attributes
 	@Id
 	@Column(name = "folio")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int folio;
-	
 	//reserved for one to one relationship
 	@OneToOne
 	@JoinColumn(name = "id_usuario")
@@ -42,9 +40,7 @@ public class Aplicacion {
 	@Column(name = "monto_autorizado", nullable = true)
 	private double montoAutorizado;
 	
-	public Aplicacion() {
-	}
-	
+	public Aplicacion() {}
 	//constructor to update
 	
 	public Aplicacion(int folio, Usuario usuario, Producto producto, Date fechaAplicacion, char aprobacion, Date fechaAprovacion, double montoAutorizado) {
@@ -59,8 +55,7 @@ public class Aplicacion {
 	
 	//constructor to create, since PK is now auto-generated, there is  no use to make a declaration of it
 	
-	public Aplicacion(Usuario usuario, Producto producto, Date fechaAplicacion, char aprobacion, Date fechaAprovacion,
-			double montoAutorizado) {
+	public Aplicacion(Usuario usuario, Producto producto, Date fechaAplicacion, char aprobacion, Date fechaAprovacion, double montoAutorizado) {
 		this.usuario = usuario;
 		this.producto = producto;
 		this.fechaAplicacion = fechaAplicacion;
@@ -68,7 +63,7 @@ public class Aplicacion {
 		this.fechaAprovacion = fechaAprovacion;
 		this.montoAutorizado = montoAutorizado;
 	}
-
+	//getters and setters
 	public int getFolio() {
 		return folio;
 	}

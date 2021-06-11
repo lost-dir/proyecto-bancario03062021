@@ -10,83 +10,84 @@ import javax.persistence.Table;
 @Entity
 @Table(name= "producto")
 public class Producto {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name = "id_producto")
-private int idproducto;
-@Column(name = "tipo_producto")
-private String tipoproducto;
-@Column(name = "tasa_interes")
-private double tasainteres;
-@Column(name = "monto_minimo")
-private double montominimo;
-@Column(name = "monto_maximo")
-private double montomaximo;
-
-public Producto() {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_producto")
+	private int idproducto;
 	
-}
-
-public Producto(int idproducto, String tipoproducto, double tasainteres, double montominimo, double montomaximo) {
-	super();
-	this.idproducto = idproducto;
-	this.tipoproducto = tipoproducto;
-	this.tasainteres = tasainteres;
-	this.montominimo = montominimo;
-	this.montomaximo = montomaximo;
-}
-
-public Producto(String tipoproducto, double tasainteres, double montominimo, double montomaximo) {
-	this.tipoproducto = tipoproducto;
-	this.tasainteres = tasainteres;
-	this.montominimo = montominimo;
-	this.montomaximo = montomaximo;
-}
-
-public double getIdproducto() {
-	return idproducto;
-}
-
-public void setIdproducto(int idproducto) {
-	this.idproducto = idproducto;
-}
-
-public String getTipoproducto() {
-	return tipoproducto;
-}
-
-public void setTipoproducto(String tipoproducto) {
-	this.tipoproducto = tipoproducto;
-}
-
-public double getTasainteres() {
-	return tasainteres;
-}
-
-public void setTasainteres(double tasainteres) {
-	this.tasainteres = tasainteres;
-}
-
-public double getMontominimo() {
-	return montominimo;
-}
-
-public void setMontominimo(double montominimo) {
-	this.montominimo = montominimo;
-}
-
-public double getMontomaximo() {
-	return montomaximo;
-}
-
-public void setMontomaximo(double montomaximo) {
-	this.montomaximo = montomaximo;
-}
-
-@Override
-public String toString() {
-	return "Producto [idproducto=" + idproducto + ", tipoproducto=" + tipoproducto + ", tasainteres=" + tasainteres
-			+ ", montominimo=" + montominimo + ", montomaximo=" + montomaximo + "]";
-}
+	@Column(name = "tipo_producto", nullable = false)
+	private String tipodeProducto;
+	
+	@Column(name = "tasa_interes", nullable = false)
+	private double tasainteres;
+	
+	@Column(name = "monto_minimo", nullable = false)
+	private double montominimo;
+	
+	@Column(name = "monto_maximo", nullable = false)
+	private double montomaximo;
+	
+	public Producto() {}
+	
+	public Producto(int idproducto, String tipoproducto, double tasainteres, double montominimo, double montomaximo) {
+		this.idproducto = idproducto;
+		this.tipodeProducto = tipoproducto;
+		this.tasainteres = tasainteres;
+		this.montominimo = montominimo;
+		this.montomaximo = montomaximo;
+	}
+	
+	public Producto(String tipoproducto, double tasainteres, double montominimo, double montomaximo) {
+		this.tipodeProducto = tipoproducto;
+		this.tasainteres = tasainteres;
+		this.montominimo = montominimo;
+		this.montomaximo = montomaximo;
+	}
+	
+	public int getIdproducto() {
+		return idproducto;
+	}
+	//Tambien compuse esta linea :D
+	public void setIdproducto(int idproducto) {
+		this.idproducto = idproducto;
+	}
+	//Tambien cambie aqui
+	public String getTipoDeProducto() {
+		return tipodeProducto;
+	}
+	//Tambien cambie aqui
+	public void setTipoDeProducto(String tipoproducto) {
+		this.tipodeProducto = tipoproducto;
+	}
+	
+	public double getTasainteres() {
+		return tasainteres;
+	}
+	
+	public void setTasainteres(double tasainteres) {
+		this.tasainteres = tasainteres;
+	}
+	
+	public double getMontominimo() {
+		return montominimo;
+	}
+	
+	public void setMontominimo(double montominimo) {
+		this.montominimo = montominimo;
+	}
+	
+	public double getMontomaximo() {
+		return montomaximo;
+	}
+	
+	public void setMontomaximo(double montomaximo) {
+		this.montomaximo = montomaximo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Producto [idproducto=" + idproducto + ", tipodeProducto=" + tipodeProducto + ", tasainteres=" + tasainteres
+				+ ", montominimo=" + montominimo + ", montomaximo=" + montomaximo + "]";
+	}
 
 }

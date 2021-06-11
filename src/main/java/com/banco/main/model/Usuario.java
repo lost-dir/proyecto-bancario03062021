@@ -13,19 +13,19 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idUsuario")
+	@Column(name = "id_usuario")
 	private Integer idUsuario;
 	
-	@Column(name = "nombre")
+	@Column(name = "nombre", nullable = false)
 	private String nombre;
 	
-	@Column(name = "apellido")
+	@Column(name = "apellido" , nullable = false)
 	private String apellido;
 	
-	@Column(name = "email")
+	@Column(name = "email" , nullable = true)
 	private String email;
 	
-	@Column(name = "calificacion_Buro")
+	@Column(name = "calificacion_buro", nullable = false)
 	private String calificacionBuro;
 	
 	
@@ -109,7 +109,4 @@ public class Usuario {
 				+ ", correoElectronico=" + email + ", calificacionBuro=" + calificacionBuro + "]";
 	}
 	
-	 
-	
-
 }
