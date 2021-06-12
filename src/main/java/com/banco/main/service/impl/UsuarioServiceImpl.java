@@ -1,5 +1,8 @@
 package com.banco.main.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.banco.main.bean.UsuarioBean;
 import com.banco.main.model.Usuario;
 import com.banco.main.repository.UsuarioRepository;
+
+
 import com.banco.main.service.UsuarioService;
 
 
@@ -20,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioRepository usuarioRepo;
 
 	@Override
-	public boolean createUsuario(UsuarioBean usuarioBean) {
+	public Usuario createUsuario(UsuarioBean usuarioBean) {
 		
 		Usuario usuario = new Usuario();
 		usuario.setNombre(usuarioBean.getNombre());
@@ -30,16 +35,37 @@ public class UsuarioServiceImpl implements UsuarioService {
 				
 		this.usuarioRepo.save(usuario);
 		
-		return true;
+		return usuario;
 	}
 
 	
+	@Override
+	public List<UsuarioBean> getUsuario() {
+		
+		List<Usuario> usuarioList = usuarioRepo.findAll();
+		List<UsuarioBean> usuarioBeanList = new ArrayList<UsuarioBean>();
+		
+		for (Usuario usuario: usuarioList) {
+			UsuarioBean usuarioBean = new UsuarioBean();
+			usuarioBean.setIdUsuario(usuario.getId_usuario());
+			usuarioBean.setNombre(usuario.getNombre());
+			usuarioBean.setApellido(usuario.getApellido());
+			usuarioBean.setCalificacionBuro(usuario.getCalificacionBuro());
+			usuarioBean.setEmail(usuario.getEmail());
+			
+			usuarioBeanList.add(usuarioBean);
+		}
+		return usuarioBeanList;
+	}
+	
+	
 	
 	@Override
-	public UsuarioBean getUsuario(int idUsuario) {
-		Usuario usuario = this.usuarioRepo.findById(idUsuario).orElseThrow();		
+	public UsuarioBean getUsuarioById(int id_usuario) {
+		Usuario usuario = this.usuarioRepo.findById(id_usuario).orElseThrow();		
 		UsuarioBean usuarioBean = new UsuarioBean();
 		
+		usuarioBean.setIdUsuario(usuario.getId_usuario());
 		usuarioBean.setNombre(usuario.getNombre());
 		usuarioBean.setApellido(usuario.getApellido());
 		usuarioBean.setCalificacionBuro(usuario.getCalificacionBuro());
@@ -50,11 +76,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 	}
 	
-
 	@Override
-	public Boolean updateUsuario(UsuarioBean usuarioBean) {
+	public Boolean updateUsuario(UsuarioBean usuarioBean,Integer id) {
 		
-		Usuario usuario = this.usuarioRepo.findById(usuarioBean.getIdUsuario()).orElseThrow();
+		Usuario usuario = this.usuarioRepo.findById(id).orElseThrow();
 		
 		usuario.setNombre(usuarioBean.getNombre());
 		usuario.setApellido(usuarioBean.getApellido());

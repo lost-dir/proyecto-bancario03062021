@@ -44,7 +44,7 @@ class AplicacionServiceImplTest {
 	@Test
 	void testCreate() {
 		//reutilizo las variables bean
-		this.usuarioBean = this.usuarioService.getUsuario(1);
+		this.usuarioBean = this.usuarioService.getUsuarioById(1);
 		this.productoBean = this.productoService.findId(1);
 		//aplico mi logica de negocio
 		this.aplicacionBean = new AplicacionBean(this.usuarioBean, this.productoBean, new Date(), 'Y', new Date(), 10000.00);

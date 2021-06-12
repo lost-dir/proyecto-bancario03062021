@@ -1,5 +1,7 @@
 package com.banco.main.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.banco.main.bean.UsuarioBean;
+import com.banco.main.model.Usuario;
 import com.banco.main.service.impl.UsuarioServiceImpl;
 
 @RestController
@@ -22,19 +25,26 @@ public class UsuarioContoller {
 	private UsuarioServiceImpl usuarioService;
 
 	@PostMapping("/createUsuario")
-	public ResponseEntity<Boolean> createUsuario(@RequestBody UsuarioBean usuarioBean){
-		return new ResponseEntity<Boolean>(this.usuarioService.createUsuario(usuarioBean), HttpStatus.OK);
-	}
-	
-	@GetMapping("/getUsuario/{id}")
-	public ResponseEntity<UsuarioBean> getUsuario(@PathVariable int id){
-		return new ResponseEntity<UsuarioBean>(this.usuarioService.getUsuario(id), HttpStatus.FOUND);
+	public ResponseEntity<Usuario> createUsuario(@RequestBody UsuarioBean usuarioBean){
+		return new ResponseEntity<Usuario>(this.usuarioService.createUsuario(usuarioBean), HttpStatus.OK);
 	}
 	
 	
-	@PutMapping("/updateUsuario")
-	public ResponseEntity<Boolean> updateUsuario(@RequestBody UsuarioBean usuarioBean){
-		return new ResponseEntity<Boolean>(this.usuarioService.updateUsuario(usuarioBean), HttpStatus.ACCEPTED);
+	@GetMapping("/getUsuarios")
+	public ResponseEntity<List<UsuarioBean>> getUsuario(){
+		return new ResponseEntity<List<UsuarioBean>>(this.usuarioService.getUsuario(), HttpStatus.FOUND);
+	}
+		
+	
+	@GetMapping("/getUsuarioById/{id}")
+	public ResponseEntity<UsuarioBean> getUsuarioById(@PathVariable int id){
+		return new ResponseEntity<UsuarioBean>(this.usuarioService.getUsuarioById(id), HttpStatus.FOUND);
+	}
+	
+	
+	@PutMapping("/updateUsuario/{id}")
+	public ResponseEntity<Boolean> updateUsuario(@RequestBody UsuarioBean usuarioBean, @PathVariable Integer id){
+		return new ResponseEntity<Boolean>(this.usuarioService.updateUsuario(usuarioBean,id), HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/deleteById/{id}")

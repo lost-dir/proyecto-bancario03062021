@@ -2,24 +2,43 @@ package com.banco.main.bean;
 
 import java.io.Serializable;
 
+import com.banco.main.model.Usuario;
+
 public class CuentaBean implements Serializable {
 
 
 	
 	private int numeroCuenta;
 	private Double saldo;
-	private UsuarioBean id_usuario;
+	private UsuarioBean usuario;
+	private Usuario user;
 
-	 public CuentaBean() {
-		// TODO Auto-generated constructor stub
+
+
+	public CuentaBean() {
+		
+	}
+	
+	
+
+	public CuentaBean(Double saldo, UsuarioBean usuario) {
+		super();
+		this.saldo = saldo;
+		this.usuario = usuario;
 	}
 
-	public CuentaBean(int numeroCuenta, Double saldo, UsuarioBean id_usuario) {
+	public CuentaBean(int numeroCuenta, Double saldo, UsuarioBean usuario) {
 		super();
 		this.numeroCuenta = numeroCuenta;
 		this.saldo = saldo;
-		this.id_usuario = id_usuario;
+		this.usuario = usuario;
 	}
+	
+	
+	
+
+	
+	
 
 	public int getNumeroCuenta() {
 		return numeroCuenta;
@@ -37,17 +56,25 @@ public class CuentaBean implements Serializable {
 		this.saldo = saldo;
 	}
 
-	public UsuarioBean getId_usuario() {
-		return id_usuario;
+	public UsuarioBean getUsuario() {
+		return usuario;
 	}
 
-	public void setId_usuario(UsuarioBean id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setUsuario(UsuarioBean usuario) {
+		this.usuario = usuario;
+	}
+	
+	 public Usuario getUser() {
+		return user;
+	}
+
+	public void setUser(Usuario user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "Cuenta [numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + ", id_usuario=" + id_usuario + "]";
+		return "Cuenta [numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + ", id_usuario=" + usuario + "]";
 	}
 
 	private static final long serialVersionUID = 1L;

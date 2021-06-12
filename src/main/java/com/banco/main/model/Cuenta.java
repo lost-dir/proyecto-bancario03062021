@@ -16,7 +16,7 @@ public class Cuenta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "numero_cuenta")
-	private int numeroCuenta;
+	private Integer numeroCuenta;
 	
 	@Column(name = "saldo")
 	private Double saldo;
@@ -27,10 +27,8 @@ public class Cuenta {
 
 	public Cuenta() {}
 
-	public Cuenta(int numeroCuenta, Double saldo, Usuario usuario) {
+	public Cuenta(Integer numeroCuenta) {
 		this.numeroCuenta = numeroCuenta;
-		this.saldo = saldo;
-		this.usuario = usuario;
 	}
 
 	public int getNumeroCuenta() {

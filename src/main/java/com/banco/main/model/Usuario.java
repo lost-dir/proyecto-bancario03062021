@@ -14,7 +14,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
-	private Integer idUsuario;
+	private Integer id_usuario;
 	
 	@Column(name = "nombre", nullable = false)
 	private String nombre;
@@ -34,16 +34,14 @@ public class Usuario {
 	}
 	
 	
-	public Usuario(Integer idUsuario, String nombre, String apellido, String email,
-			String calificacionBuro) {
-		super();
-		this.idUsuario = idUsuario;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.email = email;
-		this.calificacionBuro = calificacionBuro;
-	}
 	
+	public Usuario(Integer id_usuario) {
+		
+		this.id_usuario = id_usuario;
+	}
+
+
+
 	public Usuario(String nombre, String apellido, String email,
 			String calificacionBuro) {
 		this.nombre = nombre;
@@ -53,13 +51,13 @@ public class Usuario {
 	}
 
 
-	public Integer getIdUsuario() {
-		return idUsuario;
+	public Integer getId_usuario() {
+		return id_usuario;
 	}
 
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setIdUsuario(Integer id_usuario) {
+		this.id_usuario = id_usuario;
 	}
 
 
@@ -105,7 +103,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido
+		return "Usuario [idUsuario=" + id_usuario + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", correoElectronico=" + email + ", calificacionBuro=" + calificacionBuro + "]";
 	}
 	
